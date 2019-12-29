@@ -1,13 +1,11 @@
 package ir.sample.kotlin_samples.sample07_for_Loop
 
-import ir.sample.kotlin_samples.sample04_arrayListOf.arrayList
-
 fun main(args: Array<String>) {
 
     //Sample:Count 1 to 10 and print Counter;
     //    for(i in 1 .. 10)
 
-    
+
     //Sample:Count 10 to 1 and print Counter;
     //    for(i in 10 downTo 1)
 
@@ -34,7 +32,30 @@ fun main(args: Array<String>) {
 
 
     //Sample: Tracking ListItems with Index,Value Style;
-        val namesList = listOf("Amir","John","Sam","Mick","Dan")
-        for((index , value) in namesList.withIndex()) println("Element Index: $index , Value Is: $value")
+    //        val namesList = listOf("Amir","John","Sam","Mick","Dan")
+    //        for((index , value) in namesList.withIndex()) println("Element Index: $index , Value Is: $value")
 
+
+    //Inner Loop Canceling ( Just when i=2 )
+    for (i in 1..5) {
+        for (j in 1..5) {
+            if (i == 2 && j == 1) {
+                break
+            }
+            println("Sample 1 : i=$i and j=$j")
+        }
+        println("Sample 1 : i=$i")
+    }
+
+
+    //Outer Loop Canceling ( by Naming outer (for loop))
+    outerLoop@ for (i in 1..5) {
+        for (j in 1..5) {
+            if (i == 2 && j == 1) {
+                break@outerLoop
+            }
+            println("Sample 2 : i=$i and j=$j")
+        }
+        println("Sample 2 : i=$i")
+    }
 }
